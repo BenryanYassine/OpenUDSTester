@@ -87,7 +87,14 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
+RCC_CR_ RCC_CR_user = {0}; 
+RCC_CR_user.HSION = 1 ;
 
+RCC_PLLCFGR_ RCC_PLLCFGR_user ={0}; 
+RCC_PLLCFGR_user.PLLSRC = 2;
+RCC_PLLCFGR_user.PLLSRC = 2;
+RCC_PLLCFGR_user.PLLN = 8;
+RCC_PLLCFGR_user.PLLR=1;
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -104,8 +111,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-
+        HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+   
 	     // Delay for some time
 	     HAL_Delay(1000); // Delay for 500 milliseconds    /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
